@@ -5,8 +5,35 @@ Based on article : http://agonzalezro.github.io/log-your-docker-containers-from-
 The Elasticsearch and Kibana containers should run in a central location and treated as production containers.
 The packetbeat containers would be run on all docker agents/build agents.  The packetbeat containers log directly to
 Elasticsearch and store logs locally under /tmp/packetbeat.
- 
-### Cheat Sheet :
+
+###Docker compose
+
+Installation instructions : https://docs.docker.com/compose/
+
+To start Elasticsearch, Kibana and Packetbeat using docker-compose run :
+
+docker-compose up -d packetbeat
+
+Other useful commands :
+
+docker-compose ps
+docker-compose logs packetbeat
+
+Start some test containers to test the logging is working :
+
+docker-compose scale test=10
+
+Open Browser : http://localhost:5601
+
+Change index pattern from :
+
+logstash-*
+
+to
+
+packetbeat-*
+
+### Manually setting up each container individually
 
 #### Start ElasticSearch Container
 ```
@@ -53,7 +80,4 @@ logstash-*
 to
 
 packetbeat-*
-
-***Note if you get a message regarding no values just wait a minute or start a container and run some sort of command like apt-get install python to add some values to the packetbeat index
-
 
