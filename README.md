@@ -11,18 +11,18 @@ Elasticsearch and store logs locally under /tmp/packetbeat.
 Installation instructions : https://docs.docker.com/compose/
 
 To start Elasticsearch, Kibana and Packetbeat using docker-compose run :
-
+```
 docker-compose up -d packetbeat
-
+```
 Other useful commands :
-
+```
 docker-compose ps
 docker-compose logs packetbeat
-
+```
 Start some test containers to test the logging is working :
-
+```
 docker-compose scale test=10
-
+```
 Open Browser : http://localhost:5601
 
 Change index pattern from :
