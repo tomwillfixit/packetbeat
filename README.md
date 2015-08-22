@@ -31,6 +31,12 @@ to
 
 packetbeat-*
 
+Teardown everything :
+```
+docker-compose stop
+docker-compose rm -f
+```
+
 ### Manually setting up each container individually
 
 #### Start ElasticSearch Container
