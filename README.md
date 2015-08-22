@@ -1,4 +1,4 @@
-Log container data packets to Elasticsearch/Kibana
+### Log container data packets to Elasticsearch/Kibana
 
 Based on article : http://agonzalezro.github.io/log-your-docker-containers-from-a-container-with-packetbeat.html
 
@@ -6,19 +6,19 @@ The Elasticsearch and Kibana containers should run in a central location and tre
 The packetbeat containers would be run on all docker agents/build agents.  The packetbeat containers log directly to
 Elasticsearch and store logs locally under /tmp/packetbeat.
  
-Cheat Sheet :
+### Cheat Sheet :
 
-Start ElasticSearch Container
+#### Start ElasticSearch Container
 ```
 docker run -d -p 9200:9200 -p 9300:9300 --name elasticsearch elasticsearch:latest
 ```
 
-Start Kibana Container
+#### Start Kibana Container
 ```
 docker run -d -p 5601:5601 --name kibana --link elasticsearch:elasticsearch -e ELASTICSEARCH_URL=http://elasticsearch:9200 kibana:latest
 ```
 
-Build Packetbeat image 
+#### Build Packetbeat image 
 
 The configuration for packetbeat is in the packetbeat.yml file.
 
@@ -26,12 +26,12 @@ The configuration for packetbeat is in the packetbeat.yml file.
 docker build --pull -t logging/packetbeat .
 ```
 
-Start Packetbeat container
+#### Start Packetbeat container
 ```
 docker run -d --restart=always --net=host --name pb logging/packetbeat
 ```
 
-Check everything is running as expected :
+#### Check everything is running as expected :
 ```
 docker ps
 
