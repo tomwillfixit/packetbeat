@@ -2,9 +2,7 @@
 
 Based on article : http://agonzalezro.github.io/log-your-docker-containers-from-a-container-with-packetbeat.html
 
-The Elasticsearch and Kibana containers should run in a central location and treated as production containers.
-The packetbeat containers would be run on all docker agents/build agents.  The packetbeat containers log directly to
-Elasticsearch and store logs locally under /tmp/packetbeat.
+The packetbeat containers log directly to Elasticsearch and store logs locally under /tmp/packetbeat.
 
 ###Docker compose
 
